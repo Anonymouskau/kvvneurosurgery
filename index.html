@@ -435,6 +435,16 @@ function sendMessage() {
   }, 800);
 }
 </script>
+  <script>
+const ytCarousel = document.getElementById('youtubeCarousel');
+
+ytCarousel.addEventListener('slide.bs.carousel', function () {
+  const iframes = ytCarousel.querySelectorAll('iframe');
+  iframes.forEach(frame => {
+    frame.src = frame.src;
+  });
+});
+</script>
 <script>
   const navbar = document.querySelector('.navbar');
 
@@ -630,7 +640,64 @@ function sendMessage() {
   </div>
 </div>
     </div>
-        
+        <br/>
+    <hr/>
+    <h4 style="color: darkslategrey;" class="text-center mb-4 fade-in">News & updates</h4>
+    <section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4 fade-in">YouTube Updates</h2>
+
+    <div id="youtubeCarousel" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-inner">
+
+        <!-- Video 1 -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.facebook.com/kvv.edu.in/videos/transforming-lives-at-krishna-hospital-karad/4177053402539124/" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/watch?v=uzFSGKBZvj8" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/watch?v=ANBoGZuvMWM" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#youtubeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#youtubeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+  </div>
+</section>
   </div>
 </section>
 <!-- Academics -->
