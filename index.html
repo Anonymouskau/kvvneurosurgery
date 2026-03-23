@@ -226,7 +226,91 @@
   position: relative;
   animation: fadeIn 0.3s ease;
 }
+/* Chat button */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0d6efd;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 9999;
+}
 
+/* Chat box */
+#chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* Header */
+.chat-header {
+  background: #0d6efd;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Body */
+.chat-body {
+  height: 200px;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+/* Messages */
+.bot-msg {
+  background: #f1f1f1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.user-msg {
+  background: #0d6efd;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  float: right;
+}
+
+/* Footer */
+.chat-footer {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+}
+
+.chat-footer button {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0 12px;
+}
 /* Close Button */
 .close-btn {
   position: absolute;
@@ -320,6 +404,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+  <script>
+function toggleChat() {
+  const box = document.getElementById("chat-box");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+  const input = document.getElementById("user-input");
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const chatBody = document.getElementById("chat-body");
+
+  // User message
+  const userMsg = document.createElement("p");
+  userMsg.className = "user-msg";
+  userMsg.innerText = msg;
+  chatBody.appendChild(userMsg);
+
+  input.value = "";
+
+  // Bot reply (simple)
+  setTimeout(() => {
+    const botMsg = document.createElement("p");
+    botMsg.className = "bot-msg";
+    botMsg.innerText = "Our team will assist you shortly.";
+    chatBody.appendChild(botMsg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 800);
+}
+</script>
 <script>
   const navbar = document.querySelector('.navbar');
 
@@ -357,6 +472,24 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 </nav>
+  <div id="chat-toggle" onclick="toggleChat()">💬</div>
+
+<!-- Chat Box -->
+<div id="chat-box">
+  <div class="chat-header">
+    Alex 🤖
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div class="chat-body" id="chat-body">
+    <p class="bot-msg">Hi, this is Alex 👋 How can I help you?</p>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
 
 <!-- Hero Section with Carousel -->
 <section id="home">
