@@ -283,7 +283,61 @@
   border-radius: 8px;
   display: inline-block;
 }
+/* YouTube Section */
+#youtubeCarousel {
+  position: relative;
+}
 
+/* Video container */
+#youtubeCarousel .ratio {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+#youtubeCarousel .ratio:hover {
+  transform: scale(1.02);
+}
+
+/* Carousel controls */
+#youtubeCarousel .carousel-control-prev-icon,
+#youtubeCarousel .carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  padding: 15px;
+}
+
+/* Indicators (dots) */
+#youtubeCarousel .carousel-indicators button {
+  background-color: #0d6efd;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Section spacing */
+section h2 {
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+/* Optional thumbnail style */
+#youtubeCarousel img {
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+#youtubeCarousel img:hover {
+  transform: scale(1.03);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  #youtubeCarousel .ratio {
+    border-radius: 8px;
+  }
+}
 .user-msg {
   background: #0d6efd;
   color: white;
@@ -645,7 +699,7 @@ ytCarousel.addEventListener('slide.bs.carousel', function () {
     <h4 style="color: darkslategrey;" class="text-center mb-4 fade-in">News & updates</h4>
     <section class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4 fade-in">YouTube Updates</h2>
+    
 
     <div id="youtubeCarousel" class="carousel slide" data-bs-ride="carousel">
 
