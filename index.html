@@ -428,7 +428,7 @@ section h2 {
 
 /* Flip animation */
 .doctor-img.loaded {
-  animation: flipIn 0.8s ease forwards;
+  animation: flipIn 10s ease forwards;
 }
 
 @keyframes flipIn {
@@ -472,32 +472,10 @@ section h2 {
 }
 
 /* 🌙 Semi-circle animated arc */
-.avatar-wrapper::before {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  top: -10%;
-  left: -10%;
-  border-radius: 50%;
-  border: 4px solid transparent;
-  border-top: 4px solid #0d6efd;
-  border-left: 4px solid #0d6efd;
-  animation: rotateArc 2s linear infinite;
-  z-index: 1;
-}
+
 
 /* Optional glow */
 /* Optional Glow Effect */
-.avatar-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(13,110,253,0.2), transparent);
-  opacity: 0;
-  transition: 0.3s;
-}
 
 .avatar-wrapper:hover::after {
   opacity: 1;
