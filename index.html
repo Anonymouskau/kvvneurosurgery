@@ -448,7 +448,83 @@ section h2 {
   border-top: 4px solid #0d6efd;
   animation: spin 1s linear infinite;
 }
+/* Avatar Wrapper */
+.avatar-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+}
 
+/* Avatar Image */
+.doctor-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.doctor-img.loaded {
+  opacity: 1;
+}
+
+/* 🔄 Loader (center spinner) */
+.avatar-loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #eee;
+  border-top: 4px solid #0d6efd;
+  animation: spin 1s linear infinite;
+  z-index: 2;
+}
+
+/* 🌙 Semi-circle animated arc */
+.avatar-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid #0d6efd;
+  border-left: 4px solid #0d6efd;
+  animation: rotateArc 2s linear infinite;
+  z-index: 1;
+}
+
+/* Optional glow */
+.avatar-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13,110,253,0.15), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.avatar-wrapper:hover::after {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateArc {
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* Optional Glow Effect */
 .avatar-wrapper::after {
   content: "";
